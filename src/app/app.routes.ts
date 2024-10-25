@@ -3,6 +3,7 @@ import { HomeComponent } from "./home/home.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { PraticheComponent } from "./pratiche/pratiche.component";
 import { PraticaComponent } from "./pratica/pratica.component";
+import { LoginComponent } from "./login/login.component";
 
 export const routes: Routes = [
   {
@@ -24,5 +25,10 @@ export const routes: Routes = [
     path: "pratiche/:id",
     component: PraticaComponent,
     title: "Pratica",
+  },
+  {
+    path: "login",
+    component: LoginComponent,
+    title: "Login",
   },
 ];

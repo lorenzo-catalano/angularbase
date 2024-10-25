@@ -29,6 +29,10 @@ export class PraticheComponent {
   pratiche: Pratica[] = [];
   praticheService: PraticheService = inject(PraticheService);
   constructor() {
+    
+  }
+
+  ngOnInit() {
     this.praticheService.search().then((d) => {
       this.pratiche = d.users;
     });
