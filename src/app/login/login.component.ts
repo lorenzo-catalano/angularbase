@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {FormControl,FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,16 @@ import {FormControl,FormGroup, ReactiveFormsModule} from '@angular/forms';
   styleUrl: './login.component.sass'
 })
 export class LoginComponent {
+  
+  loginService: AuthService = inject(AuthService);
 
   loginForm: FormGroup = new FormGroup({
-    password: new FormControl(''),
-    username: new FormControl('')
+    password: new FormControl('emilyspass'),
+    username: new FormControl('emilys')
   });
 
   doLogin() {
-    console.log(this.loginForm.value)
+    this.loginService.login(this.loginForm.value.username,this.loginForm.value.password)
   }
 
 }

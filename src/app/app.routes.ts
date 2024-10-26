@@ -4,6 +4,8 @@ import { ProfileComponent } from "./profile/profile.component";
 import { PraticheComponent } from "./pratiche/pratiche.component";
 import { PraticaComponent } from "./pratica/pratica.component";
 import { LoginComponent } from "./login/login.component";
+import { AuthService } from "./login/auth.service";
+import { inject } from "@angular/core";
 
 export const routes: Routes = [
   {
@@ -28,7 +30,18 @@ export const routes: Routes = [
   },
   {
     path: "login",
+    redirectTo: () => {
+      const authService = inject(AuthService);
+      if (authService.isAuthenticated()) {
+        return `/`;
+      } else {
+        return `/dologin`;
+      }
+    },
+  },
+  {
+    path: "dologin",
     component: LoginComponent,
-    title: "Login",
+    title: "Login"
   },
 ];

@@ -8,7 +8,7 @@ export class PraticheService {
   constructor() {}
 
   async search(): Promise<any> {
-    const data = await fetch("ttps://dummyjson.com/usersh");
+    const data = await fetch("https://dummyjson.com/users");
     return (await data.json()) ?? [];
   }
   async get(id: number): Promise<any> {

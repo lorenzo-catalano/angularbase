@@ -2,10 +2,13 @@
     <a [routerLink]="['/']">
         <header class="brand-name">Home</header>
     </a>
-    <a [routerLink]="['/profile']"> Profile </a>
-    <a [routerLink]="['/pratiche']">
-        <header class="brand-name">Pratiche</header>
-    </a>
+    <ng-template [ngIf]="authService.isAuthenticated()" [ngIfElse]="login">
+        <a [routerLink]="['/profile']"> Profile </a>
+        <a [routerLink]="['/pratiche']">Pratiche</a>
+    </ng-template>
+    <ng-template #login>
+        <a [routerLink]="['/login']">Login</a>
+    </ng-template>
     <section class="content">
         <router-outlet></router-outlet>
     </section>
