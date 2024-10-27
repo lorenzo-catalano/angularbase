@@ -24,8 +24,9 @@ import { CommonModule } from "@angular/common";
       </tr>
     </table>
     <div>
+    <span href="#" (click)="prevPage()" *ngIf="page > 0">prev</span>
     Page:{{page+1}}
-    <a href="#" (click)="nextPage()">next</a>
+    <span href="#" (click)="nextPage()" *ngIf="page > -1">next</span>
     </div> 
   </div>`,
 })
@@ -37,15 +38,22 @@ export class PraticheComponent {
   constructor() {
     
   }
-
+  prevPage(){
+    this.page-=1;
+    this.loadPage()
+  }
   nextPage(){
     this.page+=1;
+    this.loadPage()
+  }
+  loadPage(){
+    this.praticheService.search(this.page,this.perpage).then((d) => {
+      this.pratiche = d.users;
+    });
   }
   
 
   ngOnInit() {
-    this.praticheService.search(this.page,this.perpage).then((d) => {
-      this.pratiche = d.users;
-    });
+    this.loadPage()
   }
 }
