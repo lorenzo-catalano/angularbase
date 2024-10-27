@@ -25,7 +25,7 @@ import { CommonModule } from "@angular/common";
     </table>
     <div>
     Page:{{page+1}}
-    <a href="#">next</a>
+    <a href="#" (click)="nextPage()">next</a>
     </div> 
   </div>`,
 })
@@ -36,6 +36,10 @@ export class PraticheComponent {
   praticheService: PraticheService = inject(PraticheService);
   constructor() {
     
+  }
+
+  nextPage(){
+    this.page+=1;
   }
   
 
