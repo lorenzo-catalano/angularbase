@@ -23,17 +23,24 @@ import { CommonModule } from "@angular/common";
         <td><a routerLink="/pratiche/{{ pratica.id }}">edit</a></td>
       </tr>
     </table>
+    <div>
+    Page:{{page+1}}
+    <a href="#">next</a>
+    </div> 
   </div>`,
 })
 export class PraticheComponent {
+  page:number=0
+  perpage:number=5;
   pratiche: Pratica[] = [];
   praticheService: PraticheService = inject(PraticheService);
   constructor() {
     
   }
+  
 
   ngOnInit() {
-    this.praticheService.search().then((d) => {
+    this.praticheService.search(this.page,this.perpage).then((d) => {
       this.pratiche = d.users;
     });
   }

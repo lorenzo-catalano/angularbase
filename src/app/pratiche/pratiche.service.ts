@@ -7,8 +7,8 @@ import { Pratica } from "../pratica/pratica";
 export class PraticheService {
   constructor() {}
 
-  async search(): Promise<any> {
-    const data = await fetch("https://dummyjson.com/users");
+  async search(page:number,perpage:number): Promise<any> {
+    const data = await fetch(`https://dummyjson.com/users?limit=${perpage}&skip=${page*perpage}`);
     return (await data.json()) ?? [];
   }
   async get(id: number): Promise<any> {
