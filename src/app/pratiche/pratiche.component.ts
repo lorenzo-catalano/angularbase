@@ -1,7 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { RouterOutlet, RouterModule } from "@angular/router";
-import { PraticheService } from "./pratiche.service";
-import { Pratica } from "../pratica/pratica";
+import { PraticheService } from "../service/pratiche.service";
+import { Pratica } from "../model/pratica";
 import { CommonModule } from "@angular/common";
 
 @Component({

@@ -4,7 +4,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { PraticheComponent } from "./pratiche/pratiche.component";
 import { PraticaComponent } from "./pratica/pratica.component";
 import { LoginComponent } from "./login/login.component";
-import { AuthService } from "./login/auth.service";
+import { AuthService } from "./service/auth.service";
 import { inject } from "@angular/core";
 
 export const routes: Routes = [

@@ -1,7 +1,7 @@
 import { Component, inject, Input } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { PraticheService } from "../pratiche/pratiche.service";
-import { Pratica } from "../pratica/pratica";
+import { PraticheService } from "../service/pratiche.service";
+import { Pratica } from "../model/pratica";
 import { CommonModule } from "@angular/common";
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 

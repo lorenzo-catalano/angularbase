@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Pratica } from "../pratica/pratica";
+import { Pratica } from "../model/pratica";
 
 @Injectable({
   providedIn: "root",
