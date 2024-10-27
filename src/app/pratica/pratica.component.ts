@@ -9,8 +9,8 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
   imports: [CommonModule, RouterOutlet, ReactiveFormsModule],
   selector: "pratica",
   standalone: true,
-  template: `<div>
-    {{this.pratica?.username}}
+  template: `<div *ngIf="pratica">
+    {{this.pratica.username}}
     <form [formGroup]="applyForm" (submit)="submitPratica()">
         <label for="first-name">Username</label>
         <input id="first-name" type="text" formControlName="username" />
