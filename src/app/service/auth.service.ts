@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 
 export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
   providedIn: 'root',
-  factory: () => localStorage
+  factory: () => window.localStorage
 });
 @Injectable({
   providedIn: "root",
@@ -24,6 +24,15 @@ export class AuthService {
   isAuthenticated():boolean{
     return !!this.auth;
   }
+  getAccessToken():string{
+    if(this.isExpired()){
+      this.refresh()
+    }
+    return this.auth.accessToken;
+  }
+  isExpired(){
+    return true;
+  }
 
   async login(username: string,password:string): Promise<any> {
     fetch('https://dummyjson.com/auth/login', {
@@ -41,6 +50,24 @@ export class AuthService {
         this.auth = u;
         this.storage.setItem('auth',JSON.stringify(this.auth));
         this.router.navigate(['/profile'])
+      }        
+    })
+  }  
+  refresh(): any {
+    fetch('https://dummyjson.com/auth/refresh', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        refreshToken: this.auth.refreshToken,
+        expiresInMins: 30
+      })
+    })
+    .then(res => res.json())
+    .then(u=>{
+      if(u.accessToken){
+        this.auth = u;
+        this.storage.setItem('auth',JSON.stringify(this.auth));
+        return;
       }        
     })
   }  

@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
 import { RouterModule } from "@angular/router";
 import { AuthService } from "./service/auth.service";
 import { CommonModule } from "@angular/common";
@@ -13,4 +13,8 @@ import { CommonModule } from "@angular/common";
 export class AppComponent {
   authService = inject(AuthService)
   title = "millenium";
+  router:Router;
+  constructor(private r: Router ) {
+    this.router = r
+  }
 }

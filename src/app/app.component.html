@@ -1,17 +1,16 @@
 <main>
-    <a [routerLink]="['/']">
-        <header class="brand-name">Home</header>
-    </a>
+    <nav>
+    <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" >Home</a>
     <ng-template [ngIf]="authService.isAuthenticated()" [ngIfElse]="login">
-        <a [routerLink]="['/profile']"> Profile </a>
-        <a [routerLink]="['/pratiche']">Pratiche</a>
+        <a [routerLink]="['/profile']" routerLinkActive="active-link"> Profile </a>
+        <a [routerLink]="['/pratiche']" routerLinkActive="active-link">Pratiche</a>
     </ng-template>
     <ng-template #login>
-        <a [routerLink]="['/login']">Login</a>
+        <a [routerLink]="['/login']" routerLinkActive="active-link">Login</a>
     </ng-template>
+    </nav>
     <section class="content">
         <router-outlet></router-outlet>
     </section>
 </main>
 
-<router-outlet />
