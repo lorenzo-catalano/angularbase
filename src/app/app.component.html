@@ -1,4 +1,5 @@
 <main>
+    <app-header/> 
     <nav>
     <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" >Home</a>
     <ng-template [ngIf]="authService.isAuthenticated()" [ngIfElse]="login">

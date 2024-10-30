@@ -1,0 +1,39 @@
+// Variables
+$header-color: #005688 // Red color for the header
+$icon-color: #ffffff  // White color for the icons
+$icon-size: 24px    // Size of the icons
+$header-height: 60px   // Height of the header
+
+// Header styling
+.header
+  background-color: $header-color
+  height: $header-height
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 0 20px
+  color: $icon-color
+
+  // Title styling
+  .title
+    font-size: 1.5em
+    color: $icon-color
+
+  // Icons container styling
+  .icons
+    display: flex
+    gap: 15px
+
+    // Profile icon styling
+    .profile-icon
+      width: $icon-size
+      height: $icon-size
+      background: url('./profile-icon.svg') no-repeat center / contain
+      cursor: pointer
+
+    // Notification icon styling
+    .notification-icon
+      width: $icon-size
+      height: $icon-size
+      background: url('./notification-icon.svg') no-repeat center / contain
+      cursor: pointer

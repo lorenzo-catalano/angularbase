@@ -22,7 +22,7 @@ export class AuthService {
   auth!:Authentication
 
   isAuthenticated():boolean{
-    return !!this.auth;
+    return !!this.auth && !this.isExpired();
   }
   getAccessToken():string{
     if(this.isExpired()){
@@ -31,7 +31,7 @@ export class AuthService {
     return this.auth.accessToken;
   }
   isExpired(){
-    return true;
+    return this.auth && new Date() > this.auth.expiration;
   }
 
   async login(username: string,password:string): Promise<any> {
@@ -48,6 +48,7 @@ export class AuthService {
     .then(u=>{
       if(u.accessToken){
         this.auth = u;
+        this.auth.expiration = new Date(new Date().getTime()+25*60000)
         this.storage.setItem('auth',JSON.stringify(this.auth));
         this.router.navigate(['/profile'])
       }        
@@ -66,6 +67,7 @@ export class AuthService {
     .then(u=>{
       if(u.accessToken){
         this.auth = u;
+        this.auth.expiration = new Date(new Date().getTime()+25*60000)
         this.storage.setItem('auth',JSON.stringify(this.auth));
         return;
       }        

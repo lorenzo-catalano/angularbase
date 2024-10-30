@@ -37,7 +37,7 @@ export const routes: Routes = [
       } else {
         return `/dologin`;
       }
-    },
+    }
   },
   {
     path: "dologin",
