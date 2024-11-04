@@ -32,7 +32,8 @@
               }
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.css",
+              "src/satoshi.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",

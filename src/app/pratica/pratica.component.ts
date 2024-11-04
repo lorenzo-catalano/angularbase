@@ -10,10 +10,10 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
   selector: "pratica",
   standalone: true,
   template: `<div *ngIf="pratica">
-    {{this.pratica.username}}
+    {{this.pratica.title}}
     <form [formGroup]="applyForm" (submit)="submitPratica()">
         <label for="first-name">Username</label>
-        <input id="first-name" type="text" formControlName="username" />
+        <input id="first-name" type="text" formControlName="title" />
         <button type="submit" class="primary">Apply now</button>
     </form>
   </div>`,
@@ -25,7 +25,7 @@ export class PraticaComponent {
   }
   applyForm: FormGroup = new FormGroup({
     id: new FormControl(''),
-    username: new FormControl('')
+    title: new FormControl('')
   });
   praticaid!: number;
   pratica!: Pratica;
@@ -39,7 +39,7 @@ export class PraticaComponent {
       this.pratica = d;
       this.applyForm.patchValue({
         id: this.pratica.id,
-        username: this.pratica.username
+        title: this.pratica.title
       })
     });
   }

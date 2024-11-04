@@ -1,4 +1,5 @@
 export interface Pratica {
   id?: number;
-  username?: string;
+  title?: string;
+  price?: string;
 }

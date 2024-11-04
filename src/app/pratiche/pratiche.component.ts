@@ -8,6 +8,7 @@ import { CommonModule } from "@angular/common";
   imports: [CommonModule, RouterModule],
   selector: "pratiche",
   standalone: true,
+  templateUrl: './pratiche.component.html',
   template: `<div>
     <table>
       <thead>
@@ -19,7 +20,7 @@ import { CommonModule } from "@angular/common";
       </thead>
       <tr *ngFor="let pratica of pratiche">
         <td>{{ pratica.id }}</td>
-        <td>{{ pratica.username }}</td>
+        <td>{{ pratica.title }}</td>
         <td><a routerLink="/pratiche/{{ pratica.id }}">edit</a></td>
       </tr>
     </table>
@@ -48,7 +49,7 @@ export class PraticheComponent {
   }
   loadPage(){
     this.praticheService.search(this.page,this.perpage).then((d) => {
-      this.pratiche = d.users;
+      this.pratiche = d.products;
     });
   }
   

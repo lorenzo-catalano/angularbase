@@ -1,17 +1,29 @@
-<main>
-    <app-header/> 
-    <nav>
-    <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" >Home</a>
-    <ng-template [ngIf]="authService.isAuthenticated()" [ngIfElse]="login">
-        <a [routerLink]="['/profile']" routerLinkActive="active-link"> Profile </a>
-        <a [routerLink]="['/pratiche']" routerLinkActive="active-link">Pratiche</a>
-    </ng-template>
-    <ng-template #login>
-        <a [routerLink]="['/login']" routerLinkActive="active-link">Login</a>
-    </ng-template>
-    </nav>
-    <section class="content">
-        <router-outlet></router-outlet>
-    </section>
-</main>
 
+    <!-- ===== Preloader Start ===== -->
+    <!--<include src="./partials/preloader.html"></include>-->
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden {{stateService.darkMode ?'dark text-bodydark bg-boxdark-2':''}}">
+      <!-- ===== Sidebar Start ===== -->
+      <app-sidebar/>
+      <!-- ===== Sidebar End ===== -->
+
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <app-header/>
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+            <router-outlet></router-outlet>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>

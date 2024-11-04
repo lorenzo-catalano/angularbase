@@ -6,6 +6,7 @@ import { PraticaComponent } from "./pratica/pratica.component";
 import { LoginComponent } from "./login/login.component";
 import { AuthService } from "./service/auth.service";
 import { inject } from "@angular/core";
+import { SettingsComponent } from "./settings/settings.component";
 
 export const routes: Routes = [
   {
@@ -17,6 +18,11 @@ export const routes: Routes = [
     path: "profile",
     component: ProfileComponent,
     title: "Profile",
+  },
+  {
+    path: "settings",
+    component: SettingsComponent,
+    title: "Settings",
   },
   {
     path: "pratiche",

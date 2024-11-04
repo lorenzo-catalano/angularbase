@@ -4,6 +4,6 @@ import { RouterOutlet } from "@angular/router";
 @Component({
   selector: "home",
   standalone: true,
-  template: "<div>home</div>",
+  templateUrl: './home.component.html',
 })
 export class HomeComponent {}
