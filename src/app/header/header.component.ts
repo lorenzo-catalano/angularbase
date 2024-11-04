@@ -33,7 +33,7 @@ export class HeaderComponent {
     this.notificationOpen= false
   }
   
-  loginService: AuthService = inject(AuthService)
+  authService: AuthService = inject(AuthService)
   stateService: StateService = inject(StateService)
 
 }

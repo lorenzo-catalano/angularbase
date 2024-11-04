@@ -138,7 +138,6 @@
         >
           <a
             class="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
-            href="#"
             (click)="toggleNotification()"
           >
             <span
@@ -178,7 +177,6 @@
               <li>
                 <a
                   class="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-                  href="#"
                   (click)="toggleMessages()"
                 >
                   <p class="text-sm">
@@ -252,7 +250,6 @@
         >
           <a
             class="relative flex h-8.5 w-8.5 items-center justify-center rounded-full border-[0.5px] border-stroke bg-gray hover:text-primary dark:border-strokedark dark:bg-meta-4 dark:text-white"
-            href="#"
             (click)="toggleMessages()"
           >
             <span
@@ -407,14 +404,14 @@
           (click)="toggleProfile()"
         >
           <span class="hidden text-right lg:block">
-            <span class="block text-sm font-medium text-black dark:text-white"
-              >Thomas Anree</span
+            <span class="block text-sm font-medium text-black dark:text-white" 
+              >{{authService.auth.firstName}} {{authService.auth.lastName}}</span
             >
             <span class="block text-xs font-medium">UX Designer</span>
           </span>
-
+ 
           <span class="h-12 w-12 rounded-full">
-            <img src="https://dummyjson.com/icon/lorenz/150" alt="User" />
+            <img src="{{authService.auth.image}}" alt="User" />
           </span>
 
           <svg

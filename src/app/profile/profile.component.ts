@@ -17,7 +17,7 @@ export class ProfileComponent {
     fetch('https://dummyjson.com/user/me', {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${this.authService.getAccessToken()}`, // Pass JWT via Authorization header
+        'Authorization': `Bearer ${this.authService.getAccessToken()}`
       }
     })
     .then(res => res.json())
