@@ -1,29 +1,13 @@
-
-    <!-- ===== Preloader Start ===== -->
-    <!--<include src="./partials/preloader.html"></include>-->
-    <!-- ===== Preloader End ===== -->
-
-    <!-- ===== Page Wrapper Start ===== -->
-    <div class="flex h-screen overflow-hidden {{stateService.darkMode ?'dark text-bodydark bg-boxdark-2':''}}">
-      <!-- ===== Sidebar Start ===== -->
-      <app-sidebar/>
-      <!-- ===== Sidebar End ===== -->
-
-      <!-- ===== Content Area Start ===== -->
-      <div
-        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
-      >
-        <!-- ===== Header Start ===== -->
-        <app-header/>
-        <!-- ===== Header End ===== -->
-
-        <!-- ===== Main Content Start ===== -->
-        <main>
-          <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-            <router-outlet></router-outlet>
-          </div>
-        </main>
-        <!-- ===== Main Content End ===== -->
-      </div>
-      <!-- ===== Content Area End ===== -->
-    </div>
+<app-header class="app-header navbar navbar-expand bg-body"/>
+<app-sidebar class="app-sidebar bg-body-secondary shadow"></app-sidebar>
+<main class="app-main">
+    <router-outlet></router-outlet>
+</main>
+<footer class="app-footer"> <!--begin::To the end-->
+    <div class="float-end d-none d-sm-inline">Anything you want</div> <!--end::To the end--> <!--begin::Copyright--> <strong>
+        Copyright &copy; 2014-2024&nbsp;
+        <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+    </strong>
+    All rights reserved.
+    <!--end::Copyright-->
+</footer>
